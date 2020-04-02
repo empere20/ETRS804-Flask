@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <p>La distance est de {{distance}} km</p>
+    <p>Le prix est de {{prix}} {{devise}}</p>
+    {% for train in tableau %}
+        {{train}}<br></br>
+    {% endfor %}
+</body>
+</html>

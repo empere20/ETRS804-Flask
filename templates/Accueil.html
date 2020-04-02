@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+        <form action="/Calcul" method="POST">
+            <p>Ville de départ<input name="villedepart" placeholder="villedepart" required></p>
+            <p>Ville d'arrivé<input name="villearrive" placeholder="villearrive" required></p>
+            <p>Devise<input name="devise" placeholder="euro,livre,yen,rouble,yuan" required></p>
+            <p>Choisissez votre date: <input type="date" name="joursdepart"></p>
+            <label for="heuresdepart">Choisir un horaire: </label>
+                <input type="time" name="heuresdepart" value="13:30">
+            <button type="submit">Envoyer</button> 
+        </form>
+</body>
+</html>
