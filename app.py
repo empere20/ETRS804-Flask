@@ -46,17 +46,16 @@ def Calcul():
         horairesvoulu = result["joursdepart"]+" "+result["heuresdepart"]
         dt = datetime.strptime(horairesvoulu, "%Y-%m-%d %H:%M")
         horairesvouluAPIsncf = datetime.strftime(dt, '%Y%m%dT%H%M%S')
-        print(horairesvouluAPIsncf)
 
         #Construction de la requète vers l'API.
         payload = {'from': 'stop_area:OCE:SA:'+str(UIC1), 'to': 'stop_area:OCE:SA:'+str(UIC2), 'min_nb_journeys': 5, 'datetime': horairesvouluAPIsncf}
         api_get_train = requests.get('https://api.sncf.com/v1/coverage/sncf/journeys?', params=payload, auth=(TOKEN, '')).json()
-        #print(requests.get('https://api.sncf.com/v1/coverage/sncf/journeys?', params=payload, auth=(TOKEN, '')).json())
 
         #Création des tableau pour la manipulation des informations retourné par l'API.
         tabtrain = []
         tabvraidepart = []
 
+        #Condition en cas d'erreur, ou de recupération de donnée éronné
         if 'error' in api_get_train:
             tabvraidepart.append("Aucun train trouvé ou disponible")
         else:
@@ -76,4 +75,4 @@ def Calcul():
 
         return render_template("Result.html", distance=d, tableau=tabvraidepart, prix=p, devise=result['devise'])
 
-app.run(debug=True)
+#app.run(debug=True)
