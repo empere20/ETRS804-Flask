@@ -1,1 +1,1 @@
-web: gunicorn CalculPrix:app
+web: gunicorn app:app
